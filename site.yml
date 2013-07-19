@@ -1,0 +1,26 @@
+---
+
+- name: use add_host module
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+
+    - add_host: name=127.0.0.1 groups="group1"
+
+    - debug: msg="{{ all_var }}"
+
+    - debug: msg="{{ group1_var }}"
+
+
+- name: use dynamic group
+  hosts: group1
+  connection: local
+
+  tasks:
+
+    - debug: msg="{{ all_var }}"
+
+    - debug: msg="{{ group1_var }}"
+
+
